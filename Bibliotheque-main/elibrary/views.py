@@ -35,6 +35,7 @@ def best_book(ids): # la liste des id_livres dans la table reservation
 def dashboard(request):
 
     # Get today's date
+
     today = date.today()
     nombre_de_utilisateurs = Etudiant.objects.all().count()
     nombre_livre= Livre.objects.all().count()
@@ -48,6 +49,8 @@ def dashboard(request):
 
     # Trouver l'id du livre le plus réservé
     id_best_livre = best_book(liste_id_livres)
+
+    print(id_best_livre)
 
     # Récupérer le livre correspondant à cet id
     meilleur_livre = Livre.objects.get(id=id_best_livre)
